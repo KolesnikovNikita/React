@@ -9,7 +9,10 @@ const CashCheck = (props) => {
   check.addItem({ id: 8571, name: "beef", price: 85, amount: 4 });
   check.addItem({ id: 5869, name: "water", price: 15, amount: 4 });
 
-  console.log(check.items);
+  check.removeItem(8571);
+  check.removeItem(5869);
+
+
 
   return (
     <div>
@@ -19,16 +22,15 @@ const CashCheck = (props) => {
       <br />
       <table>
         <tbody>
-          {check.items.map((good) => {
-            return (
-              <tr key={good.id}>
-                <td>{good.id}</td>
-                <td>{good.name}</td>
-                <td>{good.price}</td>
-                <td>{good.amount}</td>
-              </tr>
-            );
-          })}
+          {check.items.map((good) => (
+            <tr key={good.id}>
+              <td>{good.id}</td>
+              <td>{good.name}</td>
+              <td>{good.price}</td>
+              <td>{good.amount}</td>
+            </tr>
+          )
+          )}
           <tr>
             <td>Total count: {check.totalCount()}</td>
             <td>Amount: {check.totalAmount()}</td>
